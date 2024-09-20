@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Image Converter
 
-## Getting Started
+This project provides a simple image converter built with Next.js. It allows users to select multiple images, choose a conversion format (WebP, PNG, JPEG, or AVIF), and optionally adjust the compression level for JPEG and WebP. The converted images are then downloaded as a ZIP archive.
 
-First, run the development server:
+### Usage
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Upload Images:** Select multiple images using the file input field.
+2. **Choose Conversion Format:** Select the desired conversion format from the dropdown menu.
+3. **Adjust Compression Level (Optional):** For JPEG and WebP, adjust the compression level using the slider. Lower values result in higher quality but larger file sizes.
+4. **Convert:** Click the 'Convert' button to start the conversion process. A progress bar will display the conversion status.
+5. **Download:** Once the conversion is complete, a ZIP archive containing the converted images will be downloaded automatically.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Code Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project uses the following code structure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`src/app/page.tsx`:** Renders the main component containing the image upload form and the conversion controls.
+- **`src/components/layout/ImageFormUpload.tsx`:** Houses the form logic and handles the conversion process using `fetch` to call the API route.
+- **`src/app/api/convert/route.ts`:**  An API route that receives the uploaded image, format, and optional compression level. It converts the image using the `sharp` library and returns the converted image as a response.
+- **`src/components/layout/Header.tsx`:**  Renders the header with a navigation bar and a theme toggle.
+- **`src/components/layout/Navbar.tsx`:**  Implements the navigation bar with links to the GitHub repository, X profile, and a 'Support this Project' button.
+- **`src/components/layout/ModeToggle.tsx`:** Provides a button to switch between light and dark themes.
+- **`src/components/layout/ThemeProvider.tsx`:**  Wraps the application with the `next-themes` component to enable theme switching.
+- **`src/components/ui`:** Contains reusable UI components such as buttons, inputs, labels, alerts, progress bars, selects, and sliders.
+- **`src/lib/utils.ts`:** Provides a helper function (`cn`) for combining Tailwind CSS classes.
