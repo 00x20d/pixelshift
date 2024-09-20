@@ -9,7 +9,7 @@ export function Navbar() {
       <ul className='flex space-x-4 items-center'>
         <li>
           <Link
-            href='https://github.com/shadcn/ui'
+            href='https://github.com/00x2d0/pixelshift'
             className='hover:text-foreground/80'
           >
             Github
@@ -17,14 +17,17 @@ export function Navbar() {
         </li>
         <li>
           <Link
-            href='https://twitter.com/shadcn'
+            href='https://twitter.com/0x20d'
             className='hover:text-foreground/80'
           >
             X
           </Link>
         </li>
         <li>
-          <Link href='#' className='hover:text-foreground/80'>
+          <Link
+            href='https://buymeacoffee.com/0x20d/membership'
+            className='hover:text-foreground/80'
+          >
             Support this Project
           </Link>
         </li>
